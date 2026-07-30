@@ -124,6 +124,14 @@ export async function POST(request: NextRequest) {
     // Send to Meta CAPI (non-blocking)
     sendMetaCAPI(order).catch(console.error)
 
+    // Auto-create Dropi order (non-blocking)
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bodeganatural.com'
+    fetch(`${baseUrl}/api/dropi-order`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-cron-secret': 'bn-cron-2026' },
+      body: JSON.stringify(order),
+    }).then(r => r.json()).then(d => console.log('Dropi result:', JSON.stringify(d))).catch(console.error)
+
     console.log('NEW ORDER:', JSON.stringify(order))
 
     return NextResponse.json({ success: true, orderId }, { status: 201 })
