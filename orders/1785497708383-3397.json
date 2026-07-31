@@ -15,11 +15,5 @@
   "createdAt": "2026-07-31T11:35:08.382Z",
   "ip": "186.102.188.96",
   "dropi_order_id": 84275991,
-  "dropi_orders": [
-    84275991,
-    84276287,
-    84278657,
-    84278968
-  ],
-  "dropi_note": "Created 4 times due to upload retries; keeping 84275991, others to cancel"
+  "dropi_url": "https://app.dropi.co/dashboard/orders"
 }
