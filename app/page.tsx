@@ -9,14 +9,39 @@ const fbq = (...args: unknown[]) => {
 }
 
 const CITIES: Record<string, string> = {
-  'Bogotá': 'Cundinamarca', 'Medellín': 'Antioquia', 'Cali': 'Valle del Cauca',
-  'Barranquilla': 'Atlántico', 'Cartagena': 'Bolívar', 'Bucaramanga': 'Santander',
-  'Pereira': 'Risaralda', 'Manizales': 'Caldas', 'Cúcuta': 'N. de Santander',
-  'Ibagué': 'Tolima', 'Santa Marta': 'Magdalena', 'Villavicencio': 'Meta',
-  'Pasto': 'Nariño', 'Montería': 'Córdoba', 'Neiva': 'Huila',
-  'Armenia': 'Quindío', 'Popayán': 'Cauca', 'Sincelejo': 'Sucre',
-  'Valledupar': 'Cesar', 'Tunja': 'Boyacá', 'Florencia': 'Caquetá',
-  'Riohacha': 'La Guajira', 'Yopal': 'Casanare', 'Otra ciudad': '',
+  'Bogotá': 'Cundinamarca',
+  'Medellín': 'Antioquia', 'Bello': 'Antioquia', 'Itagüí': 'Antioquia', 'Envigado': 'Antioquia', 'Apartadó': 'Antioquia', 'Turbo': 'Antioquia', 'Rionegro': 'Antioquia',
+  'Cali': 'Valle del Cauca', 'Palmira': 'Valle del Cauca', 'Buenaventura': 'Valle del Cauca', 'Tuluá': 'Valle del Cauca', 'Cartago': 'Valle del Cauca',
+  'Barranquilla': 'Atlántico', 'Soledad': 'Atlántico', 'Malambo': 'Atlántico',
+  'Cartagena': 'Bolívar', 'Magangué': 'Bolívar',
+  'Bucaramanga': 'Santander', 'Floridablanca': 'Santander', 'Girón': 'Santander', 'Barrancabermeja': 'Santander',
+  'Pereira': 'Risaralda', 'Dosquebradas': 'Risaralda',
+  'Manizales': 'Caldas', 'La Dorada': 'Caldas',
+  'Cúcuta': 'N. de Santander', 'Ocaña': 'N. de Santander',
+  'Ibagué': 'Tolima', 'Espinal': 'Tolima',
+  'Santa Marta': 'Magdalena', 'Ciénaga': 'Magdalena',
+  'Villavicencio': 'Meta',
+  'Pasto': 'Nariño', 'Tumaco': 'Nariño',
+  'Montería': 'Córdoba', 'Lorica': 'Córdoba',
+  'Neiva': 'Huila', 'Pitalito': 'Huila',
+  'Armenia': 'Quindío', 'Calarcá': 'Quindío',
+  'Popayán': 'Cauca',
+  'Sincelejo': 'Sucre',
+  'Valledupar': 'Cesar',
+  'Tunja': 'Boyacá', 'Duitama': 'Boyacá', 'Sogamoso': 'Boyacá',
+  'Florencia': 'Caquetá',
+  'Riohacha': 'La Guajira', 'Maicao': 'La Guajira',
+  'Yopal': 'Casanare',
+  'Mocoa': 'Putumayo',
+  'Leticia': 'Amazonas',
+  'Puerto Inírida': 'Guainía',
+  'San José del Guaviare': 'Guaviare',
+  'Mitú': 'Vaupés',
+  'Puerto Carreño': 'Vichada',
+  'Arauca': 'Arauca',
+  'Quibdó': 'Chocó',
+  'San Andrés': 'San Andrés',
+  'Otra ciudad': '',
 }
 
 const PACKAGES = [
@@ -39,7 +64,7 @@ const FAQ = [
   { q: '¿Cómo funciona el pago contra entrega?', a: 'Haces tu pedido hoy sin pagar nada. El mensajero llega a tu puerta en 1-3 días, entrega el jabón, y en ese momento pagas en efectivo. Cero riesgo.' },
   { q: '¿Funciona para manchas del embarazo (cloasma)?', a: 'Sí, el ácido kójico es uno de los ingredientes más recomendados para el cloasma. Es seguro durante el embarazo y la lactancia.' },
   { q: '¿Sirve para todo tipo de piel?', a: 'Sí. Piel grasa, seca, mixta y sensible. La fórmula es suave y no reseca. Si tienes piel muy delicada, empieza usándolo solo en las noches.' },
-  { q: '¿Qué pasa si no me funciona?', a: 'Garantía de 30 días. Si usas el producto por 30 días y no notas diferencia, te devolvemos el dinero. Nos comprometemos.' },
+  { q: '¿Qué pasa si no me funciona?', a: 'El ácido kójico tiene respaldo científico y miles de usuarias satisfechas en Colombia. Úsalo diariamente y verás la diferencia. Ante cualquier duda, contáctanos.' },
 ]
 
 function Stars({ n = 5 }) {
@@ -160,13 +185,9 @@ export default function Page() {
             </div>
           </div>
           <button onClick={goToForm}
-            className="bg-[#CC2B2B] hover:bg-[#b52424] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md hidden sm:block">
+            className="bg-[#CC2B2B] hover:bg-[#b52424] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md">
             Pedir Ahora →
           </button>
-          <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"
-            className="sm:hidden bg-[#25D366] text-white font-bold text-sm px-4 py-2 rounded-xl">
-            WhatsApp
-          </a>
         </div>
       </header>
 
@@ -214,7 +235,7 @@ export default function Page() {
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-5 text-xs text-gray-500">
                 <span className="flex items-center gap-1">🚚 Envío gratis</span>
                 <span className="flex items-center gap-1">💰 Pagas al recibirlo</span>
-                <span className="flex items-center gap-1">✅ Garantía 30 días</span>
+                <span className="flex items-center gap-1">✅ Sin riesgos</span>
               </div>
             </div>
 
@@ -250,7 +271,7 @@ export default function Page() {
             { icon: '💰', t: 'Pago Contra Entrega', s: 'Sin pagar antes' },
             { icon: '🚚', t: 'Envío Gratis', s: 'A toda Colombia' },
             { icon: '⚡', t: 'Entrega en 1-3 días', s: 'Ciudades principales' },
-            { icon: '🛡️', t: 'Garantía 30 días', s: 'Sin preguntas' },
+            { icon: '🛡️', t: 'Pago Seguro', s: 'Solo al recibir' },
           ].map((b, i) => (
             <div key={i} className="flex flex-col items-center gap-1">
               <span className="text-2xl">{b.icon}</span>
@@ -450,10 +471,7 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1">Número de pedido:</p>
                 <p className="text-[#5B2D18] font-mono font-bold text-sm break-all">{orderId}</p>
               </div>
-              <a href="https://wa.me/573000000000?text=Hola%2C+acabo+de+hacer+un+pedido+%23{orderId}+y+quiero+confirmarlo" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold py-3 px-6 rounded-xl">
-                Confirmar por WhatsApp 💬
-              </a>
+              <p className="text-[#5B2D18] font-semibold text-sm">Te contactaremos al número que dejaste para coordinar la entrega.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white border border-[#f0e8df] rounded-3xl p-6 sm:p-8 shadow-xl space-y-5">
@@ -566,7 +584,7 @@ export default function Page() {
                 <span>🔒 Datos seguros</span>
                 <span>🚚 Envío gratis</span>
                 <span>💰 Pago al recibir</span>
-                <span>↩️ Garantía 30 días</span>
+                <span>✅ Sin adelantos</span>
               </div>
             </form>
           )}
@@ -638,15 +656,6 @@ export default function Page() {
           <p className="text-[#9a7060] text-xs mt-4">© 2026 Bodega Natural Colombia</p>
         </div>
       </footer>
-
-      {/* FLOATING WHATSAPP */}
-      <a href="https://wa.me/573000000000?text=Hola%2C+quiero+información+sobre+el+Jabón+Kojic+Aclarante"
-        target="_blank" rel="noopener noreferrer" className="wa-float">
-        <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.114 1.523 5.843L.05 23.5l5.798-1.454A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.795-.5-5.392-1.38l-.386-.22-3.44.864.92-3.356-.244-.398A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-        </svg>
-      </a>
 
       {/* STICKY MOBILE CTA */}
       <div className="sticky-cta">
